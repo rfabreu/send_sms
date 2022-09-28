@@ -24,6 +24,6 @@ import requests
 resp = requests.post('https://textbelt.com/text', {
   'phone': '4169853788',
   'message': 'Daily test SMS.\nConfirm delivey!',
-  'key': 'textbelt_test',
+  'key': 'textbelt',
 })
 print(resp.json())
