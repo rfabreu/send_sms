@@ -20,6 +20,11 @@ The recommended use of this tool is as follows:
 - `Deploy` the edited script on your favorite `cloud` platform
 - Alternatively, users can also `schedule` and `run` the script `locally`.
 
+### Screenshot
+Simple API request to send SMS:
+<br />
+![Desktop](./Doc/app_screenshot.png)
+
 ## License
 Licensed under the MIT license.
 ## Contributing
