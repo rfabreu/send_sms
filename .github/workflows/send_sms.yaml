@@ -1,0 +1,36 @@
+name: send_sms
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '0 7 * * *'
+
+jobs:
+  send_sms:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up environment
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+
+      - name: Install dependencies
+        run: |
+          pip install -U pip
+          pip install requests python-dotenv
+
+      - name: send_sms
+        if: "${{success()}}"
+        env:
+          # Set the phone number for the SMS
+          PHONE_NUMBER: "${{secrets.PHONE_NUMBER}}"
+        uses: docker://python:3.9
+        with:
+          entrypoint: /bin/sh
+          args:
+            - -c
+            - |
+              pip install -U pip
+              pip install requests python-dotenv
+              python send_sms.py
