@@ -9,12 +9,12 @@ API_KEY = os.getenv('TEXT_API_KEY') or os.getenv('secrets.TEXT_API_KEY') # 'text
 phone = os.getenv('PHONE_NUMBER') or os.getenv('secrets.PHONE_NUMBER')
 
 # RETRIEVE EMAIL SETTINGS FOR CONFIRMATION
-smtp_server = os.environ.get('SMPT_SERVER') # CREATE GH SECRET
-smtp_port = os.environ.get('SMTP_PORT') # CREATE GH SECRET
-smtp_username = os.environ.get('SMTP_USERNAME')
-smtp_password = os.environ.get('SMTP_PASSWORD')
-from_email = os.environ.get('FROM_EMAIL')
-to_email = os.environ.get('TO_EMAIL')
+smtp_server = os.environ.get('SMPT_SERVER') or os.environ.get('secrets.SMPT_SERVER')
+smtp_port = os.environ.get('SMTP_PORT') or os.environ.get('secrets.SMTP_PORT')
+smtp_username = os.environ.get('SMTP_USERNAME') or os.environ.get('secrets.SMTP_USERNAME')
+smtp_password = os.environ.get('SMTP_PASSWORD') or os.environ.get('secrets.SMTP_PASSWORD')
+from_email = os.environ.get('FROM_EMAIL') or os.environ.get('secrets.FROM_EMAIL')
+to_email = os.environ.get('TO_EMAIL') or os.environ.get('secrets.TO_EMAIL')
 
 # SEND SMS USING THE TEXTBELT API
 
