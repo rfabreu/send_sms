@@ -18,12 +18,12 @@ import requests
 
 # SEND SMS USING THE TEXTBELT API
 
-resp = requests.post('https://textbelt.com/text', {
-  'phone': '4169853788',
-  'message': 'Daily SMS check.\nConfirm delivey!',
-  'key': 'textbelt',
-  })
-if resp.json()['success']:
+# resp = requests.post('https://textbelt.com/text', {
+#   'phone': '4169853788',
+#   'message': 'Daily SMS check.\nConfirm delivey!',
+#   'key': 'textbelt',
+#   })
+# if resp.json()['success']:
   # print('SMS sent successfully!\nCheck the email.')
 
   # SEND EMAIL CONFIRMATION
@@ -38,8 +38,8 @@ if resp.json()['success']:
   #   server.login(smtp_username, smtp_password)
   #   server.sendmail(from_email, to_email, message.as_string())
 
-  print('Success check message sent!')
-else:
+#   print('Success check message sent!')
+# else:
   # SEND EMAIL SMS DELIVERY FAILURE
   # message = MIMEText('Auto SMS failed.\nCheck working conditions!')
   # message['From'] = from_email
@@ -52,4 +52,13 @@ else:
   #   server.login(smtp_username, smtp_password)
   #   server.sendmail(from_email, to_email, message.as_string())
 
-  print('SMS failure message sent!')
+  # print('SMS failure message sent!')
+
+
+# FROM THIS POINT ONWARDS THIS IS A TEMP TEST VERSION
+resp = requests.post('https://textbelt.com/text', {
+  'phone': '4169853788',
+  'message': 'Daily SMS check.\nConfirm delivey!',
+  'key': 'textbelt',
+})
+print(resp.json())
