@@ -10,22 +10,15 @@ jobs:
   send_sms:
     runs-on: ubuntu-latest
     steps:
-      - name: Set up environment
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.9
-
-      - name: Install dependencies
-        run: |
-          pip install -U pip
-          pip install requests python-dotenv
-
-      - name: send_sms
-        if: "${{success()}}"
-        env:
-          # Set the phone number for the SMS
-          PHONE_NUMBER: "${{secrets.PHONE_NUMBER}}"
-        uses: docker://python:3.9
-        with:
-          entrypoint: /bin/sh
-          args: '-c "pip install -U pip && pip install requests python-dotenv && python send_sms.py"'
+    - name: Checkout repository
+      uses: actions/checkout@v2
+    - name: Setup Python environment
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+    - name: Install required packages
+      run: pip install requests python-dotenv
+    - name: Run Python script
+      run: |
+        cd $GITHUB_WORKSPACE
+        python send_sms.py
