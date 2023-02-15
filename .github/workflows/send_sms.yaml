@@ -28,9 +28,4 @@ jobs:
         uses: docker://python:3.9
         with:
           entrypoint: /bin/sh
-          args:
-            -c
-            - |
-              pip install -U pip
-              pip install requests python-dotenv
-              python send_sms.py
+          args: '-c "pip install -U pip && pip install requests python-dotenv && python send_sms.py"'
