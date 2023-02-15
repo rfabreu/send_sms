@@ -25,6 +25,7 @@ jobs:
         env:
           # Set the phone number for the SMS
           PHONE_NUMBER: "${{secrets.PHONE_NUMBER}}"
+          run: python ./send_sms.py
         uses: docker://python:3.9
         with:
           entrypoint: /bin/sh
