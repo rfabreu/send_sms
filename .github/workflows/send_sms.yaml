@@ -9,9 +9,9 @@ on:
 jobs:
   send_sms:
     runs-on: ubuntu-latest
-    env:
-      TEXT_API_KEY: ${{ secrets.TEXT_API_KEY }}
-      PHONE_NUMBER: ${{ secrets.PHONE_NUMBER }}
+    # env:
+    #   TEXT_API_KEY: ${{ secrets.TEXT_API_KEY }}
+    #   PHONE_NUMBER: ${{ secrets.PHONE_NUMBER }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
