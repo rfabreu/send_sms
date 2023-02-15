@@ -29,6 +29,7 @@ if resp.json()['success']:
   message['Subject'] = 'SMS system check'
 
   with smtplib.SMTP(smtp_server, smtp_port) as server:
+    server.connect(smtp_server, smtp_port)
     server.starttls()
     server.login(smtp_username, smtp_password)
     server.sendmail(from_email, to_email, message.as_string())
@@ -42,6 +43,7 @@ else:
   message['Subject'] = 'SMS system check'
 
   with smtplib.SMTP(smtp_server, smtp_port) as server:
+    server.connect(smtp_server, smtp_port)
     server.starttls()
     server.login(smtp_username, smtp_password)
     server.sendmail(from_email, to_email, message.as_string())
