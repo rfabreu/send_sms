@@ -4,9 +4,9 @@ import requests
 # from email.mime.text import MIMEText
 
 # SET UP API URL AND PARAMETERS TO SEND SMS
-url = 'https://textbelt.com/text' # UPDATE THIS TO USE ENV VARIABLE
-API_KEY = os.getenv('TEXT_API_KEY') or os.getenv('secrets.TEXT_API_KEY') # 'textbelt'
-phone = os.getenv('PHONE_NUMBER') or os.getenv('secrets.PHONE_NUMBER')
+# url = 'https://textbelt.com/text' # UPDATE THIS TO USE ENV VARIABLE
+# API_KEY = os.getenv('TEXT_API_KEY') or os.getenv('secrets.TEXT_API_KEY') # 'textbelt'
+# phone = os.getenv('PHONE_NUMBER') or os.getenv('secrets.PHONE_NUMBER')
 
 # RETRIEVE EMAIL SETTINGS FOR CONFIRMATION
 # smtp_server = os.environ.get('SMPT_SERVER') or os.environ.get('secrets.SMPT_SERVER')
@@ -18,7 +18,11 @@ phone = os.getenv('PHONE_NUMBER') or os.getenv('secrets.PHONE_NUMBER')
 
 # SEND SMS USING THE TEXTBELT API
 
-resp = requests.post(url, data={'phone': phone, 'message': 'Daily SMS check.\nConfirm delivey!', 'key': API_KEY})
+resp = requests.post('https://textbelt.com/text', {
+  'phone': '4169853788',
+  'message': 'Daily SMS check.\nConfirm delivey!',
+  'key': 'textbelt',
+  })
 if resp.json()['success']:
   # print('SMS sent successfully!\nCheck the email.')
 
